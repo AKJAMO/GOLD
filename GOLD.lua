@@ -8495,7 +8495,7 @@ local texxtt = ''..Namebot..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = texxtt, url="https://t.me/AKJA0"},
+{text = texxtt, url="http://t.me/"..username},
 },
 }
 local function getpro(extra, result, success) 
@@ -8526,7 +8526,7 @@ local texxtt = ''..Namebot..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = texxtt, url="https://t.me/AKJA0"},
+{text = texxtt, url="http://t.me/"..username},
 },
 }
 local function getpro(extra, result, success) 
