@@ -8496,7 +8496,7 @@ end
 if text == ""..(database:get(bot_id..'Name:Bot') or 'الجولد').."" then  
 Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد')
 local DRAGON_Msg = {
-''ننعم يروحي 😻❤️',
+'ننعم يروحي 😻❤️',
 'نعم يا قلب  '..Namebot..'',
 'عاوز اي من '..Namebot..'',
 'دوختو  '..Namebot..'',
@@ -11707,7 +11707,7 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '🄰', callback_data="/help1"},{text = '🄱', callback_data="/help2"},{text = '🄲', callback_data="/help3"}},
+{{text = '🄰', callback_data="/help1"},{text = '🄱', callback_data="/help2"},{text = '??', callback_data="/help3"}},
 {{text = '🄳', callback_data="/help4"},{text = '🄴', callback_data="/help5"}},
 {{text = '🄵', callback_data="/help6"},{text = '🄶', callback_data="/help7"},{text = '🄷', callback_data="/help8"}},
 {{text = '🄸', callback_data="/help9"},{text = '🄹', callback_data="/help10"}},
