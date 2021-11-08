@@ -2758,31 +2758,20 @@ end
 end
 end,nil)   
 end
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == '"' then
-local Text =[[
-┎━─━─━─━─━─━─━─━─━┒
-🚨╎ 𝐖𝐞𝐥𝐜𝐨𝐦 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐆𝐨𝐥𝐝.
-ꔹ┉ ┉ ┉ ┉ ┉ ┉ꔹ┉ ┉ ┉ ┉ ┉ ┉ꔹ
-🕹╎ 𝐓𝐡𝐞 𝐁𝐞𝐬𝐭 𝐒𝐨𝐮𝐫𝐜𝐞 𝐈𝐧 𝐓𝐞𝐥𝐞.
-ꔹ┉ ┉ ┉ ┉ ┉ ┉ꔹ┉ ┉ ┉ ┉ ┉ ┉ꔹ
-🔋╎ 𝐕𝐞𝐫𝐲 𝐏𝐫𝐨𝐭𝐞𝐜𝐭𝐞𝐝 𝐒𝐨𝐮 𝐠𝐨𝐥𝐝. 
-┖━─━─━─━─━─━─━─━─━┚
+if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
+local Text = [[
+╭▱▰▱▰◐╿[ 𝐆𝐨𝐥𝐝 ](http://t.me/AKJA0)╿◐▱▰▱▰╮
+┆
+┆[𝐖𝐞𝐥𝐜𝐨𝐦 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐆𝐨𝐥𝐝](http://t.me/AKJA0)
+┆
+╰▱▰▱▰◐╿[ 𝐆𝐨𝐥𝐝 ](http://t.me/AKJA0)╿◐▱▰▱▰╯
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-
-{
-{text = '⌯ 𝐅𝐚𝐜𝐭𝐨𝐭𝐲 𝐆𝐨𝐥𝐝 ⌯', url = "https://t.me/AK82_Bot"},{text = '⌯ 𝐓𝐰𝐚𝐬𝐨𝐥 ⌯', url = "https://t.me/Ak85_bot"},
-},
-{
-{text = '⌯ 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 𝐆𝐨𝐥𝐝 ⌯', url = "https://t.me/dv_GOLD"}
-},
-{
-{text = '⌯ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐆𝐨𝐥𝐝 ⌯', url = "https://t.me/AKJA0"}
-},
+{{text = • ᴍʏ ᴅᴇᴠ', callback_data="/mydev"},{text = '• ᴍʏ ᴄʜᴀɴɴᴇʟ', callback_data="/channel"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/aslak8/21&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/aslak8/21&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
