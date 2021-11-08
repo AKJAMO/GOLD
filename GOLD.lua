@@ -1211,7 +1211,7 @@ send(msg.chat_id_, msg.id_,'* ⦁ لا يمكنك تغيير المطور الا
 end
 if text == 'تحديث السورس ⌯' and DevGOLDW(msg) then 
 os.execute('rm -rf GOLD.lua')
-os.execute('wget https://raw.githubusercontent.com/AKJAMO/GOLD/main/GOLD.lua')
+os.execute('wget https://raw.githubusercontent.com/ AKJAMO/GOLD/main/GOLD.lua')
 send(msg.chat_id_, msg.id_,' * ⦁ تم تحديث السورس* \n* ⦁ لديك اخر اصدار لسورس جولد*\n* ⦁ الاصدار »{ 5.v}*')
 dofile('GOLD.lua')  
 end
@@ -2448,7 +2448,7 @@ send(msg.chat_id_, msg.id_,' * ⦁ تم تعيين عدد الاعضاء سيت�
 end
 if text == 'تحديث السورس' and DevGOLDW(msg) then 
 os.execute('rm -rf GOLD.lua')
-os.execute('wget https://raw.githubusercontent.com/AKJAMO/GOLD/main/GOLD.lua')
+os.execute('wget https://raw.githubusercontent.com/ AKJAMO/GOLD/main/GOLD.lua')
 send(msg.chat_id_, msg.id_,' * ⦁ تم تحديث السورس* \n* ⦁ لديك اخر اصدار لسورس جولد*\n* ⦁ الاصدار »{ 5.v}*')
 dofile('GOLD.lua')  
 end
@@ -2766,7 +2766,7 @@ local Text = [[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = • ᴍʏ ᴅᴇᴠ', callback_data="/Mydev"},{text = '• ᴍʏ ᴄʜᴀɴɴᴇʟ', callback_data="/Mychnnei"}},
+{{text = • ᴍʏ ᴅᴇᴠ', callback_data="/mydev"},{text = '• ᴍʏ ᴄʜᴀɴɴᴇʟ', callback_data="/channel"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/aslak8/21&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -11626,7 +11626,8 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'كـل ما هوا لطـيف',url="t.me/POSTAT_MOSTAFA"}},
-{{text = 'sᴏᴜʀᴄᴇ sᴀɪᴅɪ',url="t.me/S_a_i_d_i"}},
+{{text = '𝗦𝗼𝘂𝗿𝗰𝗲 𝗚𝗼𝗹𝗱',url="t.me/AKJA0"}},
+{{text = '𝗦𝗼𝘂𝗿𝗰𝗲 𝗚𝗼𝗹𝗱 ❷',url="t.me/g_00_l_d"}},
 {{text = 'ʙᴀᴄᴋ', callback_data="/GGG"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
