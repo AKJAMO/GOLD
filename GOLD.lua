@@ -8473,7 +8473,7 @@ return false
 end
 if text == ""..(database:get(bot_id..'Name:Bot') or 'الجولد').."" then  
 Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد')
-local GOLD.lua_Msg = {
+local DRAGON_Msg = {
 'ننعم يروحي 😻❤️',
 'نعم يا قلب  '..Namebot..'',
 'عاوز اي من '..Namebot..'',
@@ -8489,7 +8489,7 @@ local GOLD.lua_Msg = {
 'انا '..Namebot..' احسن البوتات 🤩♥️',
 'نعم'
 } 
-Namebot = GOLD.lua_Msg[math.random(#GOLD.lua_Msg)] 
+Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
 local msg_id = msg.id_/2097152/0.5  
 local texxtt = ''..Namebot..''
 keyboard = {} 
@@ -8509,7 +8509,7 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, l
 end
 if text == "بوت" then
 local Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد') 
-local GOLD.lua_Msg = { 
+local DRAGON_Msg = {
 'اسمي '..Namebot..' يا روحي 🙂❤️',
 'اسمي  '..Namebot..' يعمري🤗💔',
 'اسمي  '..Namebot..' يا قمر 😍🤤',
@@ -8520,7 +8520,7 @@ local GOLD.lua_Msg = {
 'اسمي  '..Namebot..' ياحياتي😻❤️',
 'اسمي  '..Namebot..' يوتكه 🍒🤗',
 } 
-Namebot = GOLD.lua_Msg[math.random(#GOLD.lua_Msg)] 
+Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
 local msg_id = msg.id_/2097152/0.5  
 local texxtt = ''..Namebot..''
 keyboard = {} 
