@@ -17,7 +17,7 @@ print([[
 ]])
 io.popen("mkdir File_Bot") 
 io.popen("cd File_Bot && rm -rf commands.lua") 
-io.popen("cd File_Bot && wget https://raw.githubusercontent.com/AMRR-DEV/Files_GOLD/main/File_Bot/commands.lua") 
+io.popen("cd File_Bot && wget https://raw.githubusercontent.com/DVGOLD/Files_GOLD/main/File_Bot/commands.lua") 
 t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
@@ -1213,7 +1213,7 @@ send(msg.chat_id_, msg.id_,'*◐╿لا يمكنك تغيير المطور ال�
 end
 if text == 'تحديث السورس ⌯' and DevGOLDW(msg) then 
 os.execute('rm -rf GOLD.lua')
-os.execute('wget https://raw.githubusercontent.com/AKJAMO/GOLD/main/GOLD.lua')
+os.execute('wget https://raw.githubusercontent.com/AMRR-DEV/GOLD/main/GOLD.lua')
 send(msg.chat_id_, msg.id_,' *◐╿تم تحديث السورس* \n*◐╿لديك اخر اصدار لسورس جولد*\n*◐╿الاصدار »{ 5.v}*')
 dofile('GOLD.lua')  
 end
@@ -2450,7 +2450,7 @@ send(msg.chat_id_, msg.id_,' *◐╿تم تعيين عدد الاعضاء سيت
 end
 if text == 'تحديث السورس' and DevGOLDW(msg) then 
 os.execute('rm -rf GOLD.lua')
-os.execute('wget https://raw.githubusercontent.com/AKJAMO/GOLD/main/GOLD.lua')
+os.execute('wget https://raw.githubusercontent.com/AMRR-DEV/GOLD/main/GOLD.lua')
 send(msg.chat_id_, msg.id_,' *◐╿تم تحديث السورس* \n*◐╿لديك اخر اصدار لسورس جولد*\n*◐╿الاصدار »{ 5.v}*')
 dofile('GOLD.lua')  
 end
@@ -2758,31 +2758,21 @@ end
 end
 end,nil)   
 end
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == '"' then
-local Text =[[
+if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
+local Text = [[
 ┎━─━─━─━─━─━─━─━─━┒
-🚨╎ 𝐖𝐞𝐥𝐜𝐨𝐦 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐆𝐨𝐥𝐝.
-ꔹ┉ ┉ ┉ ┉ ┉ ┉ꔹ┉ ┉ ┉ ┉ ┉ ┉ꔹ
-🕹╎ 𝐓𝐡𝐞 𝐁𝐞𝐬𝐭 𝐒𝐨𝐮𝐫𝐜𝐞 𝐈𝐧 𝐓𝐞𝐥𝐞.
-ꔹ┉ ┉ ┉ ┉ ┉ ┉ꔹ┉ ┉ ┉ ┉ ┉ ┉ꔹ
-🔋╎ 𝐕𝐞𝐫𝐲 𝐏𝐫𝐨𝐭𝐞𝐜𝐭𝐞𝐝 𝐒𝐨𝐮 𝐠𝐨𝐥𝐝. 
+┆
+┆[𝐖𝐞𝐥𝐜𝐨𝐦 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐆𝐨𝐥𝐝](http://t.me/S_a_i_d_i)
+┆                           
 ┖━─━─━─━─━─━─━─━─━┚
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-
-{
-{text = '⌯ 𝐅𝐚𝐜𝐭𝐨𝐭𝐲 𝐆𝐨𝐥𝐝 ⌯', url = "https://t.me/AK82_Bot"},{text = '⌯ 𝐓𝐰𝐚𝐬𝐨𝐥 ⌯', url = "https://t.me/Ak85_bot"},
-},
-{
-{text = '⌯ 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 𝐆𝐨𝐥𝐝 ⌯', url = "https://t.me/dv_GOLD"}
-},
-{
-{text = '⌯ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐆𝐨𝐥𝐝 ⌯', url = "https://t.me/AKJA0"}
-},
+{{text = '• ᴍʏ ᴅᴇᴠ', callback_data="/devsoo"},{text = '• ᴍʏ ᴄʜᴀɴɴᴇʟ', callback_data="/change-siusr"}},
+{{text = 'مـطـور الـبـوت', url="http://t.me/"..sudos.UserName}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/aslak8/21&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/aslak8/21&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
@@ -3941,7 +3931,7 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
 if DevGOLDW(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/AMRR-DEV/Files_GOLD/main/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/DVGOLD/Files_GOLD/main/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -3979,7 +3969,7 @@ t = " *◐╿الملف »* "..file.."\n*◐╿تم تعطيل ملف* \n"
 else
 t = " *◐╿بالتاكيد تم تعطيل ملف →* "..file.."\n"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/AMRR-DEV/Files_GOLD/main/File_Bot/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/DVGOLD/Files_GOLD/main/File_Bot/"..file)
 if res == 200 then
 os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -3999,7 +3989,7 @@ t = " *◐╿بالتاكيد تم تفعيل ملف →* "..file.." \n"
 else
 t = " *◐╿الملف »* "..file.."\n*◐╿تم تفعيل ملف* \n"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/AMRR-DEV/Files_GOLD/main/File_Bot/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/DVGOLD/Files_GOLD/main/File_Bot/"..file)
 if res == 200 then
 local chek = io.open("File_Bot/"..file,'w+')
 chek:write(json_file)
