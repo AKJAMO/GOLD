@@ -7915,19 +7915,6 @@ end
 return false
 end
 
-if text == ""..(database:get(bot_id..'Name:Bot') or 'جولد').."" then  
-Namebot = (database:get(bot_id..'Name:Bot') or 'جولد')
-local GOLD_Msg = {
-'عمغي 🥺💕.',
-'هاا شتريد كافي ☹️.',
-'مشايف بوت شني 😂.',
-'كول حبيبي ؟ اني '..Namebot..'',
-'مشغول حالياً',
-'عمري فداك '..Namebot..' كول حب'
-}
-send(msg.chat_id_, msg.id_,'['..GOLD_Msg[math.random(#GOLD_Msg)]..']') 
-return false
-end
 if text=="اذاعه خاص" and msg.reply_to_message_id_ == 0 and Sudo(msg) then 
 if database:get(bot_id..'Bc:Bots') and not DevGOLDW(msg) then 
 send(msg.chat_id_, msg.id_,' *◐╿الاذاعه معطله من قبل المطور الاساسي*')
@@ -8506,55 +8493,74 @@ database:srem(bot_id..'Chek:Groups',msg.chat_id_)
 end
 return false  
 end
-if text == "بوت" or text == 'البوت' then 
-local Namebot = (database:get(bot_id..'Name:Bot') or 'جولد') 
-local Dev_Ah8 = { 
-'◐╿مرحبا انا بوت  '..Namebot..' 𖠧',
+if text == ""..(database:get(bot_id..'Name:Bot') or 'الجولد').."" then  
+Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد')
+local DRAGON_Msg = {
+''ننعم يروحي 😻❤️',
+'نعم يا قلب  '..Namebot..'',
+'عاوز اي من '..Namebot..'',
+'دوختو  '..Namebot..'',
+'بتشقط وجي ويت 🤪',
+'ايوا جاي 🙈',
+'يعم هتسحر واجي 😾',
+'طب متصلي على النبي كدا 🙂💜',
+'تع اشرب شاي 🥺💙',
+'دوس على الخوخه 🍑',
+'متيجي 😉',
+'ياض خش نام 😂',
+'انا '..Namebot..' احسن البوتات 🤩♥️',
+'نعم'
 } 
-Namebot = Dev_Ah8[math.random(#Dev_Ah8)] 
+Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
 local msg_id = msg.id_/2097152/0.5  
+local texxtt = ''..Namebot..''
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'Ξ 𝐒𝐨𝐮𝐫𝐜𝐞 𝐆𝐨𝐥𝐝 Ξ', url="t.me/AKJA0"}},
-{{text = 'اضف البوت لمجموعتك ☑️.', url="https://t.me/AK0_bot?startgroup=new"}},
-} 
+{
+{text = texxtt, url="http://t.me/"..sudos.UserName},
+},
+}
 local function getpro(extra, result, success) 
 if result.photos_[0] then 
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&caption=' .. URL.escape(Namebot).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(Namebot).."&photo="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 else 
 send(msg.chat_id_, msg.id_,Namebot, 1, 'md') 
 end 
 end 
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end
-if text and text:match("^المطور$") or text and text:match("^مطور$") or text and text:match("^الدعم$") then
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
-tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,dp) 
-local Name1 = result.first_name_
-local Name1 = Name1:gsub('"',"") 
-local Name1 = Name1:gsub("'","") 
-local Name1 = Name1:gsub("","") 
-local Name1 = Name1:gsub("*","") 
-local Name1 = Name1:gsub("{","") 
-local Name1 = Name1:gsub("}","") 
-local Name = '['..Name1..'](tg://user?id='..result.id_..')'
-local NameChat = dp.title_
-local NameChat = NameChat:gsub('"',"") 
-local NameChat = NameChat:gsub("'","") 
-local NameChat = NameChat:gsub("","") 
-local NameChat = NameChat:gsub("*","") 
-local NameChat = NameChat:gsub("{","") 
-local NameChat = NameChat:gsub("}","") 
-local LinkGp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
-if LinkGp.ok == true then 
-LinkGroup = LinkGp.result
-else
-LinkGroup = 'لا يوجد'
+if text == "بوت" then
+local Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد') 
+local DRAGON_Msg = { 
+'اسمي '..Namebot..' يا روحي 🙂❤️',
+'اسمي  '..Namebot..' يعمري🤗💔',
+'اسمي  '..Namebot..' يا قمر 😍🤤',
+'اسمي  '..Namebot..' يامزه 😻🤍',
+'اسمي  '..Namebot..' يعم 🔪🙄',
+'مقولت اسمي '..Namebot..' في اي 🙄',
+'اسمي الكيوت '..Namebot..' 🌝🕊️',
+'اسمي  '..Namebot..' ياحياتي😻❤️',
+'اسمي  '..Namebot..' يوتكه 🍒🤗',
+} 
+Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
+local msg_id = msg.id_/2097152/0.5  
+local texxtt = ''..Namebot..''
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = texxtt, url="http://t.me/"..sudos.UserName},
+},
+}
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(Namebot).."&photo="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+send(msg.chat_id_, msg.id_,Namebot, 1, 'md') 
+end 
+end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end
-sendText(SUDO,"◐╿هناك شخص يطلبك عزيزي المطور \n◐╿الشخص  {"..Name.."}\n◐╿اسم الجروب {"..NameChat.."}\n◐╿ايدي الجروب {"..msg.chat_id_.."}\n◐╿رابط الجروب \n ["..LinkGroup.."] ",0,'md')
-end,nil)
-end,nil)
-end
+
 if text == 'الاحصائيات' and Sudo(msg) then
 local Namebot = (database:get(bot_id..'Name:Bot') or 'جولد') 
 local Groups = database:scard(bot_id..'Chek:Groups')  
@@ -11627,7 +11633,7 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '• ᴍʏ ᴅᴇᴠ', callback_data="/Mydev"},{text = '• ᴍʏ ᴄʜᴀɴɴᴇʟ', callback_data="/Mychnnei"}},
+{{text = '• ᴍʏ ᴅᴇᴠ', callback_data="/mydev"},{text = '• ᴍʏ ᴄʜᴀɴɴᴇʟ', callback_data="/channel"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
