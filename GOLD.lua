@@ -2769,7 +2769,6 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '𝐌𝐘 𝐃𝐄𝐕', callback_data="/Mydev"},{text = '𝐌𝐘 𝐂𝐇𝐀𝐍𝐍𝐄𝐈', callback_data="/Mychnnei"}},
-{{text = 'اضف البوت الي مجموعتك 🕊️' ,url="t.me/"..dofile("./Info.lua").botUserName.."?startgroup=start"}}, 
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/aslak8/21&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -8778,24 +8777,51 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 end
 
-if text == "رتبتي" then
+if text == "رتبتي" and not database:get(bot_id..'ghiktr'..msg.chat_id_) then     
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+if result.username_ then
+username = result.username_ 
+else
+username = 'AKJA0'
+end
 local msg_id = msg.id_/2097152/0.5  
-local textt = ' ⦁ رتبتك '..Rutba(msg.sender_user_id_,msg.chat_id_)
+local textt = '🕊 رتبتك في البوت » '..Rutba(msg.sender_user_id_,msg.chat_id_)
+local AKJA0 = 'https://t.me/xxxcccvvbbnn/903'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'ᯓ ᴛᴇᴀᴍ ɢᴏʟᴅ', url = "https://t.me/Akja0"},
+{text = textt, url="http://t.me/"..username},
 },
 }
 local function getpro(extra, result, success) 
 if result.photos_[0] then 
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&caption=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 else 
-send(msg.chat_id_, msg.id_,textt, 1, 'md') 
-end 
-end 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(AKJA0).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end end 
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+end,nil)
 end
+
+if text == 'تفعيل رتبتي' and Manager(msg) then   
+if database:get(bot_id..'ghiktr'..msg.chat_id_)  then
+database:del(bot_id..'ghiktr'..msg.chat_id_) 
+Text = '\n ⦁ تم تفعيل رتبتي' 
+else
+Text = '\n ⦁  بالتاكيد تم تفعيل رتبتي'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل رتبتي' and Manager(msg) then  
+if not database:get(bot_id..'ghiktr'..msg.chat_id_)  then
+database:set(bot_id..'ghiktr'..msg.chat_id_,true) 
+Text = '\n ⦁ تم تعطيل رتبتي' 
+else
+Text = '\n ⦁ بالتاكيد تم تعطيل رتبتي'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+
 if text == "انا مين" then
 local msg_id = msg.id_/2097152/0.5  
 local textt = ' ⦁ انت '..Rutba(msg.sender_user_id_,msg.chat_id_)
