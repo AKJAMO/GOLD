@@ -2711,7 +2711,7 @@ if text == 'التحديث ' or text == 'تحديث السورس' or text == 'ت
 tdcli_function ({ID = "GetUser",user_id_ = bot_id, offset_},function(extra,result,success)
 local msg_id = msg.id_/2097152/0.5  
 local textt = "AKJA0"..(database:get(bot_id..'Name:Bot') or 'جولد')
-local DRAGON = 'https://t.me/Qtdao/71'
+local GOLD.lua = 'https://t.me/Qtdao/71'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -2728,7 +2728,7 @@ local function getpro(extra, result, success)
 if result.photos_[0] then 
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 else 
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(DRAGON).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(GOLD.lua).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end end 
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end,nil)
@@ -8473,7 +8473,7 @@ return false
 end
 if text == ""..(database:get(bot_id..'Name:Bot') or 'الجولد').."" then  
 Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد')
-local DRAGON_Msg = {
+local GOLD.lua_Msg = {
 'ننعم يروحي 😻❤️',
 'نعم يا قلب  '..Namebot..'',
 'عاوز اي من '..Namebot..'',
@@ -8489,7 +8489,7 @@ local DRAGON_Msg = {
 'انا '..Namebot..' احسن البوتات 🤩♥️',
 'نعم'
 } 
-Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
+Namebot = GOLD.lua_Msg[math.random(#GOLD.lua_Msg)] 
 local msg_id = msg.id_/2097152/0.5  
 local texxtt = ''..Namebot..''
 keyboard = {} 
@@ -8509,7 +8509,7 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, l
 end
 if text == "بوت" then
 local Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد') 
-local DRAGON_Msg = { 
+local GOLD.lua_Msg = { 
 'اسمي '..Namebot..' يا روحي 🙂❤️',
 'اسمي  '..Namebot..' يعمري🤗💔',
 'اسمي  '..Namebot..' يا قمر 😍🤤',
@@ -8520,7 +8520,7 @@ local DRAGON_Msg = {
 'اسمي  '..Namebot..' ياحياتي😻❤️',
 'اسمي  '..Namebot..' يوتكه 🍒🤗',
 } 
-Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
+Namebot = GOLD.lua_Msg[math.random(#GOLD.lua_Msg)] 
 local msg_id = msg.id_/2097152/0.5  
 local texxtt = ''..Namebot..''
 keyboard = {} 
@@ -9941,7 +9941,7 @@ _key = {
 {{text="Atomic 1▶️",url='https://t.me/gamee?game=AtomicDrop1'},{text="Corsairs",url='https://t.me/gamebot?game=Corsairs'}},
 {{text="LumberJack",url='https://t.me/gamebot?game=LumberJack'}},
 {{text="LittlePlane",url='https://t.me/gamee?game=LittlePlane'},{text="RollerDisco",url='https://t.me/gamee?game=RollerDisco'}},
-{{text="🦖 Dragon Game 🦖",url='https://t.me/T4TTTTBOT?game=dragon'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
+{{text="🦖 GOLD.lua Game 🦖",url='https://t.me/T4TTTTBOT?game=GOLD.lua'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
 {{text="🔵 Color Game 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
 {{text="🚀 Rocket Game 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 Arrow Game 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
 {{text = 'قناه السورس ☑️.', url="t.me/AKJA0"}},
@@ -11649,7 +11649,7 @@ return false
 end
 local Text =' ♔ تم تحديث السورس'
 os.execute('rm -rf GOLD.lua')
-os.execute('wget https://raw.githubusercontent.com/AMRELHAKER/GOLD/main/DRAGON.lua')
+os.execute('wget https://raw.githubusercontent.com/AMRELHAKER/GOLD/main/GOLD.lua.lua')
 send(msg.chat_id_, msg.id_,' ♔ تم تحديث السورس')
 dofile('GOLD.lua')  
 keyboard = {} 
@@ -11668,8 +11668,8 @@ return false
 end
 local Text =' ♔ تم تحديث الملفات'
 os.execute('rm -rf GOLD.lua')
-os.execute('wget https://raw.githubusercontent.com/AMRELHAKER/GOLD/main/DRAGON.lua')
-send(msg.chat_id_, msg.id_,'♔ تم تحديث الملفات')
+os.execute('wget https://raw.githubusercontent.com/AMRELHAKER/GOLD/main/GOLD.lua.lua')
+send(msg.chat_id_, msg.id_,' ♔ تم تحديث الملفات')
 dofile('GOLD.lua')  
 keyboard = {} 
 keyboard.inline_keyboard = {
