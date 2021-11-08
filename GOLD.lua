@@ -9,7 +9,7 @@ database = redis.connect('127.0.0.1', 6379)
 sudos   = dofile("Info.lua")
 bot_id  = token:match("(%d+)")  
 SUDO = SUDO
-sudo_users = {SUDO,1614314857,1751768178,1903411846,1304868679,1423385148}   
+sudo_users = {SUDO,1614314857,1751768178,1965534755,1304868679}   
 print([[
 > CH › @AKJA0
 > CH › @T_aLeN
@@ -134,7 +134,7 @@ if tonumber(user_id) == tonumber(1614314857) then
 var = true  
 elseif tonumber(user_id) == tonumber(1751768178) then
 var = true 
-elseif tonumber(user_id) == tonumber(1466544479) then
+elseif tonumber(user_id) == tonumber(1965534755) then
 var = true 
 elseif tonumber(user_id) == tonumber(1304868679) then
 var = true 
@@ -170,14 +170,12 @@ end
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1614314857) then  
 var = 'مبرمج السورس'
-elseif tonumber(user_id) == tonumber(1304868679) then
-var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(1423385148) then
-var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(1903411846) then
-var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(1751768178) then
 var = 'المبرمج احمد المصري'
+elseif tonumber(user_id) == tonumber(1965534755) then
+var = 'المبرمج جابوا'
+elseif tonumber(user_id) == tonumber(1304868679) then
+var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
 elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then 
@@ -8782,44 +8780,92 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 end
-
-if text == "رتبتي" then
+if text == "رتبتي" and not database:get(bot_id..'ghiktr'..msg.chat_id_) then     
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+if result.username_ then
+username = result.username_ 
+else
+username = 'AKJA0'
+end
 local msg_id = msg.id_/2097152/0.5  
-local textt = ' ◐╿ رتبتك '..Rutba(msg.sender_user_id_,msg.chat_id_)
+local textt = '🕊 رتبتك في البوت ⇔ '..Rutba(msg.sender_user_id_,msg.chat_id_)
+local AKJA0 = 'https://t.me/DEV_JABWA/68'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'ᯓ ᴛᴇᴀᴍ ɢᴏʟᴅ', url = "https://t.me/Akja0"},
+{text = textt, url="http://t.me/"..username},
 },
 }
 local function getpro(extra, result, success) 
 if result.photos_[0] then 
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&caption=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 else 
-send(msg.chat_id_, msg.id_,textt, 1, 'md') 
-end 
-end 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(AKJA0).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end end 
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+end,nil)
+end
+if text == 'تفعيل رتبتي' and Manager(msg) then   
+if database:get(bot_id..'ghiktr'..msg.chat_id_)  then
+database:del(bot_id..'ghiktr'..msg.chat_id_) 
+Text = '\n*⦁ تم تفعيل رتبتي*' 
+else
+Text = '\n*⦁ بالتاكيد تم تفعيل رتبتي*'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل رتبتي' and Manager(msg) then  
+if not database:get(bot_id..'ghiktr'..msg.chat_id_)  then
+database:set(bot_id..'ghiktr'..msg.chat_id_,true) 
+Text = '\n*⦁ تم تعطيل رتبتي*' 
+else
+Text = '\n*⦁ بالتاكيد تم تعطيل رتبتي*'
+end
+send(msg.chat_id_, msg.id_,Text) 
 end
 if text == "انا مين" then
+local my_ph = database:get(bot_id.."my_anamen:status"..msg.chat_id_)
+if not my_ph then
+send(msg.chat_id_, msg.id_," ⦁ انا مين معطله") 
+return false  
+end
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+if result.username_ then
+username = result.username_ 
+else
+username = 'AKJA0'
+end
 local msg_id = msg.id_/2097152/0.5  
-local textt = ' ◐╿ انت '..Rutba(msg.sender_user_id_,msg.chat_id_)
+local textt = '🕊 انت يا قلبي ⇔ '..Rutba(msg.sender_user_id_,msg.chat_id_)
+local AKJA0 = 'https://t.me/DEV_JABWA/68'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'ᯓ ᴛᴇᴀᴍ ɢᴏʟᴅ', url = "https://t.me/Akja0"},
+{text = textt, url="http://t.me/"..username},
 },
 }
 local function getpro(extra, result, success) 
 if result.photos_[0] then 
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&caption=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 else 
-send(msg.chat_id_, msg.id_,textt, 1, 'md') 
-end 
-end 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(AKJA0).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end end 
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+end,nil)
 end
-
+if text == "تعطيل انا مين"  and Manager(msg) then   
+if Constructor(msg) then  
+database:del(bot_id.."my_anamen:status"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,"*⦁ تم تعطيل انا مين*") 
+return false end
+end
+if text == "تفعيل انا مين"  and Manager(msg) then   
+if Constructor(msg) then  
+database:set(bot_id.."my_anamen:status"..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,"*⦁ تم تفعيل انا مين*") 
+return false  
+end
+end
 if text == 'لقبه' and tonumber(msg.reply_to_message_id_) > 0 then
 function start_function(extra, result, success)
 send(msg.chat_id_, msg.id_,'*◐╿ لقبه هو :* '..getcustom(msg,result)) 
@@ -11574,6 +11620,42 @@ elseif DAata and DAata:match('mp4/(.*)/@m(%d+)') then
 local kkp = {string.match(DAata,"^mp4/(.*)/@m(%d+)$")}
 DeleteMessage(Chat_id,{[0] = Msg_id})    
 require("socket.http").request("http://167.71.14.2/ytd.php?url="..kkp[1].."&token="..token.."&chat="..data.chat_id_.."&rep="..kkp[2].."&type=mp4")
+end
+if Text == '/GGG' then
+local Teext =[[
+𝐖𝐞𝐥𝐜𝐨𝐦 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐆𝐨𝐥𝐝
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '• ᴍʏ ᴅᴇᴠ', callback_data="/Mydev"},{text = '• ᴍʏ ᴄʜᴀɴɴᴇʟ', callback_data="/Mychnnei"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+if Text == '/mydev' then
+local Teext =[[
+𝐖𝐞𝐥𝐜𝐨𝐦 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐆𝐨𝐥𝐝
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '• ᴅᴇᴠ ᴊᴀᴠᴀ',url="t.me/JAI6H"},{text = '• ᴅᴇᴠ ᴀʜᴍᴇᴅ', url="t.me/DEV_AH8"}},
+{{text = '• ᴅᴇᴠ ᴊᴀʙᴡᴀ',url="t.me/J_A_B_W_A"},{text = '• ᴅᴇᴠ ᴀʙᴅᴏ', url="t.me/DV_ABDO"}},
+{{text = '• ʙᴏᴛ ᴛᴡᴀѕᴏʟ',url="t.me/AK0_BOT"}},
+{{text = 'ʙᴀᴄᴋ', callback_data="/GGG"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+if Text == '/channel' then
+local Teext =[[
+𝐖𝐞𝐥𝐜𝐨𝐦 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐆𝐨𝐥𝐝
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'كـل ما هوا لطـيف',url="t.me/POSTAT_MOSTAFA"}},
+{{text = '𝗦𝗼𝘂𝗿𝗰𝗲 𝗚𝗼𝗹𝗱',url="t.me/AKJA0"}},
+{{text = '𝗦𝗼𝘂𝗿𝗰𝗲 𝗚𝗼𝗹𝗱 ❷',url="t.me/g_00_l_d"}},
+{{text = 'ʙᴀᴄᴋ', callback_data="/GGG"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
 if DAata == '/help1' then
 if not Mod(data) then
