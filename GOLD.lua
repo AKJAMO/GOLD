@@ -11648,7 +11648,7 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Text =' ♔ تم تحديث السورس'
-os.execute('rm -rf DRAGON.lua')
+os.execute('rm -rf GOLD.lua')
 os.execute('wget https://raw.githubusercontent.com/AMRELHAKER/GOLD/main/DRAGON.lua')
 send(msg.chat_id_, msg.id_,' ♔ تم تحديث السورس')
 dofile('GOLD.lua')  
@@ -11667,9 +11667,9 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Text =' ♔ تم تحديث الملفات'
-os.execute('rm -rf DRAGON.lua')
+os.execute('rm -rf GOLD.lua')
 os.execute('wget https://raw.githubusercontent.com/AMRELHAKER/GOLD/main/DRAGON.lua')
-send(msg.chat_id_, msg.id_,♔ تم تحديث الملفات')
+send(msg.chat_id_, msg.id_,'♔ تم تحديث الملفات')
 dofile('GOLD.lua')  
 keyboard = {} 
 keyboard.inline_keyboard = {
