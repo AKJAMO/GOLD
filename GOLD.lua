@@ -1209,12 +1209,6 @@ end
 if text =='تغيير المطور الاساسي ⌯' and not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'*◐╿لا يمكنك تغيير المطور الاساسي*')
 end
-if text == 'تحديث السورس ⌯' and DevGOLDW(msg) then 
-os.execute('rm -rf GOLD.lua')
-os.execute('wget https://raw.githubusercontent.com/AMRELHAKER/GOLD/main/GOLD.lua')
-send(msg.chat_id_, msg.id_,' *◐╿تم تحديث السورس* \n*◐╿لديك اخر اصدار لسورس جولد*\n*◐╿الاصدار »{ 5.v}*')
-dofile('GOLD.lua')  
-end
 if text == 'الاصدار ⌯' and DevGOLDW(msg) then 
 database:del(bot_id..'Srt:Bot') 
 send(msg.chat_id_, msg.id_,' *◐╿اصدار سورس جولد* \n*◐╿الاصدار »{ 4.v}*')
@@ -2446,12 +2440,6 @@ local Num = text:match("ضع عدد الاعضاء (%d+)$")
 database:set(bot_id..'Num:Add:Bot',Num) 
 send(msg.chat_id_, msg.id_,' *◐╿تم تعيين عدد الاعضاء سيتم تفعيل الجروبات التي اعضائها اكثر من  >> {'..Num..'} عضو*')
 end
-if text == 'تحديث السورس' and DevGOLDW(msg) then 
-os.execute('rm -rf GOLD.lua')
-os.execute('wget https://raw.githubusercontent.com/AMRELHAKER/GOLD/main/GOLD.lua')
-send(msg.chat_id_, msg.id_,' *◐╿تم تحديث السورس* \n*◐╿لديك اخر اصدار لسورس جولد*\n*◐╿الاصدار »{ 5.v}*')
-dofile('GOLD.lua')  
-end
 if text and text:match("^تغير الاشتراك$") and DevGOLDW(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, ' *◐╿حسنآ ارسل لي معرف القناة*')
@@ -2719,43 +2707,33 @@ tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(ms
 end
 end
 end
-if text == "تفعيل تنبيه الصور" and Manager(msg) and database:get(bot_id.."AL:Sre:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '*◐╿تم تفعيل تنبيه الصور*')
-database:set(bot_id.."Ttn:Ph:stats"..msg.chat_id_,"open")
-end
-if text == "تعطيل تنبيه الصور" and Manager(msg) and database:get(bot_id.."AL:Sre:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '*◐╿تم تعطيل تنبيه الصور*')
-database:set(bot_id.."Ttn:Ph:stats"..msg.chat_id_,"close")
-end
-if text and database:get(bot_id.."Ttn:Ph:stats"..msg.chat_id_) == "open" then  
-tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
-if data.id_ then 
-if data.id_ ~= bot_id then 
-local GOLDChengPhoto = database:get(bot_id.."GOLD:Cheng:Photo"..data.id_)
-if not data.profile_photo_ then 
-if GOLDChengPhoto then 
-send(msg.chat_id_, msg.id_, "جافا الهكر قد حذف كل الصور😂🙂")
-database:del(bot_id.."GOLD:Cheng:Photo"..data.id_) 
-end
-end
-if data.profile_photo_.big_.persistent_id_ then 
-if GOLDChengPhoto ~= data.profile_photo_.big_.persistent_id_ then 
-local Text = {
-  "شكو غيرت صورتك يلصاك",
-  "منور طالع حلو ع صوره جديده",
-  "ها يول شو غيرت صورتك😍😂",
-  "شكو غيرت صورتك شنو قطيت وحده جديده 😹😹🌚",
-  "شو غيرت صورتك شنو تعاركت ويه الحب ؟😹🌞",
-  "شكو غيرت الصوره شسالفه ؟؟ 🤔🌞",
+if text == 'التحديث ' or text == 'تحديث السورس' or text == 'تحديث' and not database:get(bot_id..'Namebot'..msg.chat_id_) then     
+tdcli_function ({ID = "GetUser",user_id_ = bot_id, offset_},function(extra,result,success)
+local msg_id = msg.id_/2097152/0.5  
+local textt = "AKJA0"..(database:get(bot_id..'Name:Bot') or 'جولد')
+local DRAGON = 'https://t.me/Qtdao/71'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '◐╿ تحديث السورس╿◐', callback_data="/Jabwa"},
+},
+{
+{text = '◐╿ تحديث الملفات╿◐', callback_data="/Jabwa2"},
+},
+{
+{text = '┢ 𝗦𝗼𝘂𝗿𝗰𝗲 𝗚𝗼𝗹𝗱 ┩', url="t.me/AKJA0"},
+},
 }
-send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
-end  
-database:set(bot_id.."GOLD:Cheng:Photo"..data.id_, data.profile_photo_.big_.persistent_id_) 
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(DRAGON).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+end,nil)
 end
-end
-end
-end,nil)   
-end
+
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 local Text = [[
 ╭▱▰▱▰◐╿[ 𝐆𝐨𝐥𝐝 ](http://t.me/AKJA0)╿◐▱▰▱▰╮
@@ -8517,7 +8495,7 @@ local texxtt = ''..Namebot..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = texxtt, url="http://t.me/"..sudos.UserName},
+{text = texxtt, url="https://t.me/AKJA0"},
 },
 }
 local function getpro(extra, result, success) 
@@ -8548,7 +8526,7 @@ local texxtt = ''..Namebot..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = texxtt, url="http://t.me/"..sudos.UserName},
+{text = texxtt, url="https://t.me/AKJA0"},
 },
 }
 local function getpro(extra, result, success) 
@@ -11663,6 +11641,45 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
+if Text == '/Jabwa' then
+if not CoSu(data) then
+local notText = '✘ عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Text =' ♔ تم تحديث السورس'
+os.execute('rm -rf DRAGON.lua')
+os.execute('wget https://raw.githubusercontent.com/AMRELHAKER/GOLD/main/DRAGON.lua')
+send(msg.chat_id_, msg.id_,' ♔ تم تحديث السورس')
+dofile('GOLD.lua')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text ='اخفاء القائمه', callback_data="/hide"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+if Text == '/Jabwa2' then
+if not CoSu(data) then
+local notText = '✘ عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Text =' ♔ تم تحديث الملفات'
+os.execute('rm -rf DRAGON.lua')
+os.execute('wget https://raw.githubusercontent.com/AMRELHAKER/GOLD/main/DRAGON.lua')
+send(msg.chat_id_, msg.id_,♔ تم تحديث الملفات')
+dofile('GOLD.lua')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text ='اخفاء القائمه', callback_data="/hide"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+
 if DAata == '/help1' then
 if not Mod(data) then
 local notText = '♢ عذرا الاوامر هذه لا تخصك'
@@ -11707,7 +11724,7 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '🄰', callback_data="/help1"},{text = '🄱', callback_data="/help2"},{text = '??', callback_data="/help3"}},
+{{text = '🄰', callback_data="/help1"},{text = '🄱', callback_data="/help2"},{text = '🄲', callback_data="/help3"}},
 {{text = '🄳', callback_data="/help4"},{text = '🄴', callback_data="/help5"}},
 {{text = '🄵', callback_data="/help6"},{text = '🄶', callback_data="/help7"},{text = '🄷', callback_data="/help8"}},
 {{text = '🄸', callback_data="/help9"},{text = '🄹', callback_data="/help10"}},
