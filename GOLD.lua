@@ -1,4 +1,4 @@
-@redis = require('redis') 
+redis = require('redis') 
 https = require ("ssl.https") 
 serpent = dofile("./library/serpent.lua") 
 json = dofile("./library/JSON.lua") 
@@ -2757,19 +2757,6 @@ end
 end
 end
 end,nil)   
-end
-if text == 'جابوا' or text == 'مصطفي' or text == 'المبرمج جابوا' or text == 'مطور السورس' or text == 'صاحب سورس الصعيدي' then
-local Text = [[
-[𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ʏᴏᴢᴀʀᴀᴛ ᴍᴏѕᴛᴀғᴀ](http://t.me/J_A_B_W_A)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'M҉O҉ S҉T҉ A҉F҉A҉',url="t.me/DEV_MOSTAFA"}},
-{{text ='الــقــنــوات', callback_data="/Jabwa"},{text ='الــبــارات', callback_data="/Jabwa2"}},  
-{{text ='الــبــوتــات', callback_data="/Jabwa3"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/J_A_B_W_A&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == '"' then
 local Text =[[
@@ -8933,6 +8920,157 @@ return false
 end
 end
 
+if text == "اسمي" and not database:get(bot_id..'shiktr'..msg.chat_id_) then     
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+if result.username_ then
+username = result.username_ 
+else
+username = 'AKJA0'
+end
+local msg_id = msg.id_/2097152/0.5  
+local textt = "╿◐ ليس لديك صور "..(database:get(bot_id..'Name:Bot_') or 'اخري ◐╿')
+local JABWA = 'https://t.me/DEV_JABWA/68'
+keyboard = {} 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = ''..result.first_name_..'', url = "http://t.me/"..username},
+},
+}
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(Jabwa).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+end,nil)
+end
+if text == "بايو" and not database:get(bot_id..'shiktr'..msg.chat_id_) then     
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+if result.username_ then
+username = result.username_ 
+else
+username = 'AKJA0'
+end
+local msg_id = msg.id_/2097152/0.5  
+local textt = ' '..getbio(msg.sender_user_id_,msg.chat_id_)
+local JABWA = 'https://t.me/DEV_JABWA/68'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = textt, url = "http://t.me/"..username},
+},
+}
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(Jabwa).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+end,nil)
+end
+if text == "صورتي" and not database:get(bot_id..'GeId.result.custom_title'..msg.chat_id_) then     
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+if result.username_ then
+username = result.username_ 
+else
+username = 'AKJA0'
+end
+local msg_id = msg.id_/2097152/0.5
+local textt = "╿◐ اخر صوره "..(database:get(bot_id..'getChatMember') or 'لديك ◐╿')  
+local JABWA = 'https://t.me/DEV_JABWA/68'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = textt, url= "http://t.me/"..username},
+},
+}
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(Jabwa).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+end,nil)
+end
+if text == "التاريخ" and not database:get(bot_id..'GeId.result.custom_title'..msg.chat_id_) then     
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+if result.username_ then
+username = result.username_ 
+else
+username = 'AKJA0'
+end
+local msg_id = msg.id_/2097152/0.5
+local textt =  " التاريخ ⇔"..os.date("%Y/%m/%d")  
+local JABWA = 'https://t.me/DEV_JABWA/68'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = textt, url= "http://t.me/"..username},
+},
+}
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(Jabwa).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+end,nil)
+end
+if text == "الساعه" and not database:get(bot_id..'GeId.result.custom_title'..msg.chat_id_) then     
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+if result.username_ then
+username = result.username_ 
+else
+username = 'AKJA0'
+end
+local msg_id = msg.id_/2097152/0.5
+local textt = " الساعه الان ⇔"..os.date("%I:%M%p")
+local JABWA = 'https://t.me/DEV_JABWA/68'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = textt, url= "http://t.me/"..username},
+},
+}
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(Jabwa).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+end,nil)
+end
+if text == "رسائلي" and not database:get(bot_id..'GeId.result.custom_title'..msg.chat_id_) then     
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+if result.username_ then
+username = result.username_ 
+else
+username = 'S_a_i_d_i'
+end
+local msg_id = msg.id_/2097152/0.5
+local textt = " عدد رسائلك ⇔"..database:get(bot_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_)
+local Jabwa = 'https://t.me/Qtdao/71'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = textt, url= "http://t.me/"..username},
+},
+}
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&photo=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=' .. URL.escape(Jabwa).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+end,nil)
+end
 if text == 'لقبه' and tonumber(msg.reply_to_message_id_) > 0 then
 function start_function(extra, result, success)
 send(msg.chat_id_, msg.id_,'*◐╿ لقبه هو :* '..getcustom(msg,result)) 
@@ -8942,24 +9080,6 @@ end
 if text == 'لقبي' and tonumber(msg.reply_to_message_id_) == 0 then
 send(msg.chat_id_, msg.id_,'*◐╿ لقبك هو :* '..getcustom(msg,msg)) 
 end
-if text == "اسمي"  then 
-tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
-if result.first_name_  then
-first_name = '◐╿اسمك الاول » {*`'..(result.first_name_)..'`*}'
-else
-first_name = ''
-end   
-if result.last_name_ then 
-last_name = ' *◐╿اسمك الثاني »* {*`'..result.last_name_..'`*}' 
-else
-last_name = ''
-end  
-send(msg.chat_id_, msg.id_,first_name..'\n'..last_name) 
-end,nil)
-end 
-if text == 'بايو' then   
-send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
-end 
 if text == 'ايديي' then
 send(msg.chat_id_, msg.id_,' *◐╿ايديك »* '..msg.sender_user_id_)
 end
