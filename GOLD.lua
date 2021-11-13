@@ -1705,10 +1705,10 @@ if result.photos_[0] then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◐ رفع الادمنيه ◐', callback_data="/zking"},{text = '◐ ترتيب الاوامر ◐', callback_data="/zzor"},
+{text = '◐ رفع الادمنيه ◐', callback_data="/admen2"},{text = '◐ ترتيب الاوامر ◐', callback_data="/awamer1"},
 },
 {
-{text = '◐ تفعيل المجموعه ◐', callback_data="/zking"},{text = '◐ غادر المجموعه ◐', callback_data="/zzor"},
+{text = '◐ تفعيل المجموعه ◐', callback_data="/zking"},{text = '◐ غادر المجموعه ◐', callback_data="/Zxchq"},
 },
 {
 {text = '𝗦𝗼𝘂𝗿𝗰𝗲 𝗚𝗼𝗹𝗱', url = "https://t.me/AKJA0"},
@@ -9287,7 +9287,7 @@ send(msg.chat_id_, msg.id_, '\n ◐╿عذرا لا استطيع طرد ( '..Rut
 return false
 end
 _key = {
-{{text="تأكيد الامر",callback_data="OkKikedMe"..msg.sender_user_id_},{text="الغاء الامر",callback_data="Japwa2"..msg.sender_user_id_}},
+{{text="تأكيد الامر",callback_data="OkKikedMe"..msg.sender_user_id_},{text="الغاء الامر",callback_data="noKikedMs"..msg.sender_user_id_}},
 }
 send_inlin_key(msg.chat_id_,"◐╿قم بتأكيد العمليه الان",_key,msg.id_)
 return false
@@ -9300,7 +9300,7 @@ if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
 local Text = "*◐╿*هل انت متاكد  من تنزيلك من جميع الرتب*◐╿*"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text="◐ نعم ◐",callback_data="nzllne"..msg.sender_user_id_},{text="◐ لا ◐",callback_data="Japwa2"..msg.sender_user_id_}},
+{{text="◐ نعم ◐",callback_data="nzllne"..msg.sender_user_id_},{text="◐ لا ◐",callback_data="noKikedMe"..msg.sender_user_id_}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -9310,7 +9310,7 @@ if text == 'غادر' or text == 'بوت غادر' and Mod(msg) then
 local Text = "*هل انت متأكد بمغادرة البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text="◐ نعم ◐",callback_data="Japwa"..msg.sender_user_id_},{text="◐ لا ◐",callback_data="Japwa2"..msg.sender_user_id_}},
+{{text="◐ نعم ◐",callback_data="Zxchq"..msg.sender_user_id_},{text="◐ لا ◐",callback_data="noKikedMe"..msg.sender_user_id_}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -9507,7 +9507,7 @@ local List = {
 [[
 • 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀 ➤ #username .
 • 𝙈𝙀𝙎𝙎𝘼𝙂𝙀𝙎 ➤ #msgs .
-• 𝙎𝙏𝘼𝙏𝙎 ➤ #stast .
+• 𝙎𝙏??𝙏𝙎 ➤ #stast .
 • 𝙄𝘿 ➤ #id .
 ]]}
 local Text_Rand = List[math.random(#List)]
@@ -12802,7 +12802,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 end,nil)   
 end
-if DAata == 'Japwa2'..data.sender_user_id_ then  
+if DAata == 'noKikedMs'..data.sender_user_id_ then  
 local Text ="⌯ تم الغاء الطرد بنجاح ."
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12810,7 +12810,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if Text == 'kahuna'..data.sender_user_id_ then 
+if Text == 'noKikedMe'..data.sender_user_id_ then 
 bot_data:sadd(ban_id..'Sudo:User', result.sender_user_id_)
 local Text =" ◐╿ تم الغاء الأمر بنجاح "
 keyboard = {} 
@@ -12819,13 +12819,13 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if Text == 'Japwa3'..data.sender_user_id_ then  
+if Text == 'Zxchq'..data.sender_user_id_ then  
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=ban_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
 send(msg.chat_id_, msg.id_,' ◐╿ تم مغادرة المجموعه') 
 bot_data:srem(ban_id..'Chek:Groups',msg.chat_id_)  
 return false  
 end
-if Text == 'Japwa4'..data.sender_user_id_ then  
+if Text == 'noKikedMe'..data.sender_user_id_ then  
 local Text =" ◐╿ تم الغاء الأمر بنجاح "
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12896,6 +12896,60 @@ keyboard.inline_keyboard = {
 {{text = 'ᯓ ᴛᴇᴀᴍ ɢᴏʟᴅ',url='http://t.me/AKJA0'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" ◐╿ تم تنزيلك من جميع الرتب")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/awamer1' then
+if not CoSu(data) then
+local notText = '✘ عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Text ='تم ترتيب الاوامر بالشكل التالي\n• ايدي - ا .\n• مميز - م .\n• ادمن - اد .\n• مدير - مد . \n• منشى - من .\n• المنشئ الاساسي - اس .\n• تعطيل الايدي بالصوره - تعط .\n• تفعيل الايدي بالصوره - تفع .\n• تنزيل الكل - تك .\n• اضف رد - رد .\n• حذف رد - حذ .\n• تثبيت - ت '
+bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":ا","ايدي")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"ا")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":م","رفع مميز")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"م")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":اد","رفع ادمن")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"اد")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":مد","رفع مدير")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"مد")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":من","رفع منشئ")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"من")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":اس","رفع منشئ اساسي")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"اس")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":تعط","تعطيل الايدي بالصوره")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"تعط")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":تفع","تفعيل الايدي بالصوره")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"تفع")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":تك","تنزيل الكل")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"تك")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":رد","اضف رد")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"رد")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":حذ","حذف رد")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"حذ")
+ bot_data:set(ban_id.."Set:Cmd:Group:New1"..msg.chat_id_..":ت","تثبيت")
+ bot_data:sadd(ban_id.."List:Cmd:Group:New"..msg.chat_id_,"ت")
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text ='◐ اخفاء القائمه ◐', callback_data="/hide"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+if Text == '/admen2' then
+if not CoSu(data) then
+local notText = '✘ عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Text ='• تم رفع الادمنيه بنجاح '
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text ='◐ اخفاء القائمه ◐', callback_data="/hide"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
 
 end
