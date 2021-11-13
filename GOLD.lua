@@ -10650,60 +10650,6 @@ local Chat_id = data.chat_id_
 local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local Text = data.payload_.data_
-Ok_id  = Text:match("(%d+)")  
-if Text == 'okCaptcha'..data.sender_user_id_ then  
-DeleteMessage(Chat_id, {[0] = Msg_id}) 
-return https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. Chat_id .. "&user_id="..Ok_id .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-end
-if Text == '/bnada-yquio' then
-local Teext =[[
-𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ʏᴏᴢᴀʀᴀᴛ ᴍᴏѕᴛᴀғᴀ
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'M҉O҉ S҉T҉ A҉F҉A҉',url="t.me/DEV_MOSTAFA"}},
-{{text ='الــقــنــوات', callback_data="/Jabwa"},{text ='الــبــارات', callback_data="/Jabwa2"}},  
-{{text ='الــبــوتــات', callback_data="/Jabwa3"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
-end
-if Text == '/Jabwa' then
-local Teext =[[
-𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ᴄʜᴀɴɴᴇʟѕ ᴍᴏѕᴛᴀғᴀ
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '【 𝗦𝗼𝘂𝗿𝗰𝗲 𝗦𝗮𝗶𝗱𝗶 】',url="t.me/S_a_i_d_i"},{text = 'ᴘᴏѕᴛᴀᴛ ᴍᴏѕᴛᴀғᴀ',url="t.me/POSTAT_MOSTAFA"}},
-{{text = '`ʙᴀᴄᴋ´', callback_data="/bnada-yquio"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
-end
-if Text == '/Jabwa2' then
-local Teext =[[
-𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ᴘʀᴀᴛᴛ ᴍᴏѕᴛᴀғᴀ
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '『☠𝗕𝗔𝗥•𝗧𝗘𝗠•𝗦𝗔☠』✹⃝‌꙰🥂',url="t.me/BAR_JABWA"}},
-{{text = '`ʙᴀᴄᴋ´', callback_data="/bnada-yquio"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
-end
-if Text == '/Jabwa3' then
-local Teext =[[
-𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ʙᴏᴛѕ ᴍᴏѕᴛᴀғᴀ
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'بــوت حـمـايه',url="t.me/Bot_JABWA_Bot"}},
-{{text = 'بــوت تمـويل',url="t.me/tmwelEgyptbot"}},
-{{text = 'بــوت اغـاني كول',url="t.me/SOURCE_SAIDI_BOT"}},
-{{text = 'بــوت مـسـبــقات',url="t.me/Bot_msabah_Bot"}},
-{{text = 'بــوت مـنشـورات',url="t.me/S_a_i_d_i_bot"}},
-{{text = '`ʙᴀᴄᴋ´', callback_data="/bnada-yquio"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
-end
 if DAata and DAata:match("^(%d+)unbeen(.*)$") then
 local notId  = DAata:match("(%d+)")  
 local OnID = DAata:gsub('unbeen',''):gsub(notId,'')
@@ -11732,6 +11678,55 @@ elseif DAata and DAata:match('mp4/(.*)/@m(%d+)') then
 local kkp = {string.match(DAata,"^mp4/(.*)/@m(%d+)$")}
 DeleteMessage(Chat_id,{[0] = Msg_id})    
 require("socket.http").request("http://167.71.14.2/ytd.php?url="..kkp[1].."&token="..token.."&chat="..data.chat_id_.."&rep="..kkp[2].."&type=mp4")
+end
+if Text == '/bnada-yquio' then
+local Teext =[[
+𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ʏᴏᴢᴀʀᴀᴛ ᴍᴏѕᴛᴀғᴀ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'M҉O҉ S҉T҉ A҉F҉A҉',url="t.me/DEV_MOSTAFA"}},
+{{text ='الــقــنــوات', callback_data="/Jabwa"},{text ='الــبــارات', callback_data="/Jabwa2"}},  
+{{text ='الــبــوتــات', callback_data="/Jabwa3"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+if Text == '/Jabwa' then
+local Teext =[[
+𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ᴄʜᴀɴɴᴇʟѕ ᴍᴏѕᴛᴀғᴀ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '【 𝗦𝗼𝘂𝗿𝗰𝗲 𝗦𝗮𝗶𝗱𝗶 】',url="t.me/S_a_i_d_i"},{text = 'ᴘᴏѕᴛᴀᴛ ᴍᴏѕᴛᴀғᴀ',url="t.me/POSTAT_MOSTAFA"}},
+{{text = '`ʙᴀᴄᴋ´', callback_data="/bnada-yquio"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+if Text == '/Jabwa2' then
+local Teext =[[
+𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ᴘʀᴀᴛᴛ ᴍᴏѕᴛᴀғᴀ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '『☠𝗕𝗔𝗥•𝗧𝗘𝗠•𝗦𝗔☠』✹⃝‌꙰🥂',url="t.me/BAR_JABWA"}},
+{{text = '`ʙᴀᴄᴋ´', callback_data="/bnada-yquio"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+if Text == '/Jabwa3' then
+local Teext =[[
+𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ʙᴏᴛѕ ᴍᴏѕᴛᴀғᴀ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'بــوت حـمـايه',url="t.me/Bot_JABWA_Bot"}},
+{{text = 'بــوت تمـويل',url="t.me/tmwelEgyptbot"}},
+{{text = 'بــوت اغـاني كول',url="t.me/SOURCE_SAIDI_BOT"}},
+{{text = 'بــوت مـسـبــقات',url="t.me/Bot_msabah_Bot"}},
+{{text = 'بــوت مـنشـورات',url="t.me/S_a_i_d_i_bot"}},
+{{text = '`ʙᴀᴄᴋ´', callback_data="/bnada-yquio"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
 if DAata == '/help1' then
 if not Mod(data) then
