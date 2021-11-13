@@ -1472,7 +1472,7 @@ else
 tdcli_function ({ID = "GetUser",user_id_ = SUDO,},function(arg,result) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = SUDO,offset_ = 0,limit_ = 1},function(arg,getpro) 
 if getpro.photos_[0] then
-Text = "* ⦁ Dev Name ↬ * ["..result.first_name_.."](T.me/"..result.username_..")\n* ⦁ Dev User ↬* [@"..result.username_.."]\n* ⦁ Dev id ↬* ["..result.id_.."]"
+Text = "* ⦁ Dev Name ↬ * ["..result.first_name_.."](T.me/"..result.username_.."ل)\n* ⦁ Dev User ↬* [@"..result.username_.."]\n* ⦁ Dev id ↬* ["..result.id_.."]"
 keyboard = {}
 keyboard.inline_keyboard = {{{text = ''..result.first_name_..'', url = "https://t.me/"..result.username_..""}}}
 local msg_id = msg.id_/2097152/0.5
@@ -8512,7 +8512,7 @@ local texxtt = ''..Namebot..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = texxtt, url="http://t.me/"..sudos.UserName},
+{text = texxtt, url="https://t.me/AKJA0"},
 },
 }
 local function getpro(extra, result, success) 
@@ -8543,7 +8543,7 @@ local texxtt = ''..Namebot..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = texxtt, url="http://t.me/"..sudos.UserName},
+{text = texxtt, url="https://t.me/AKJA0"},
 },
 }
 local function getpro(extra, result, success) 
