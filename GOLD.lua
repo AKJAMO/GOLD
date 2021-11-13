@@ -1,4 +1,4 @@
-redis = require('redis') 
+@redis = require('redis') 
 https = require ("ssl.https") 
 serpent = dofile("./library/serpent.lua") 
 json = dofile("./library/JSON.lua") 
@@ -2757,6 +2757,19 @@ end
 end
 end
 end,nil)   
+end
+if text == 'جابوا' or text == 'مصطفي' or text == 'المبرمج جابوا' or text == 'مطور السورس' or text == 'صاحب سورس الصعيدي' then
+local Text = [[
+[𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ʏᴏᴢᴀʀᴀᴛ ᴍᴏѕᴛᴀғᴀ](http://t.me/J_A_B_W_A)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'M҉O҉ S҉T҉ A҉F҉A҉',url="t.me/DEV_MOSTAFA"}},
+{{text ='الــقــنــوات', callback_data="/Jabwa"},{text ='الــبــارات', callback_data="/Jabwa2"}},  
+{{text ='الــبــوتــات', callback_data="/Jabwa3"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/J_A_B_W_A&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == '"' then
 local Text =[[
@@ -10637,6 +10650,100 @@ local Chat_id = data.chat_id_
 local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local Text = data.payload_.data_
+if Text and Text:match("^(%d+):searchVid(.*)$") then
+id_from_user  = Text:match("(%d+)")  
+local OnVid = Text:gsub(':searchVid',''):gsub(id_from_user,'')
+msgidrp  = OnVid:match("(%d+)")
+local id_from_vid = Text:gsub(':',''):gsub('searchVid',''):gsub(id_from_user,''):gsub(msgidrp,'')
+if tonumber(data.sender_user_id_) ~= tonumber(id_from_user) then  
+local notText = '✘ عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+object = https.request('https://black-source.tk/Api/InfoVid.php?url=http://www.youtube.com/watch?v='..URL.escape(id_from_vid))
+objectend = JSON.decode(object)
+infovid = "◥ اختر صيغه التنزيل الان ◣\n"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'Mp4', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":Mp4"},{text = 'mp3', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":mp3"},{text = 'ogg', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":ogg"}},
+{{text = '【 𝗦𝗼𝘂𝗿𝗰𝗲 𝗦𝗮𝗶𝗱𝗶 】',url='http://t.me/S_a_i_d_i'}},
+}
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(infovid)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+InfoVid = https.request('https://black-source.tk/Api/BotYoutube.php?Id='..URL.escape(id_from_vid))
+InfoVidend = JSON.decode(InfoVid)
+if InfoVidend.Info.video == "not" then  
+https.request("https://vvvzvv.ml/Xx/searchinbot.php?V="..URL.escape(id_from_vid).."&ch=do")
+end
+end
+if Text and Text:match("^(%d+):DownloadVid(.*)$") then
+local notId  = Text:match("(%d+)")  
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '✘ عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
+https.request("https://vvvzvv.ml/Xx/searchinbot.php?token="..token.."&chat_id="..Chat_id.."&data="..URL.escape(Text).."&n=do")
+end
+Ok_id  = Text:match("(%d+)")  
+if Text == 'okCaptcha'..data.sender_user_id_ then  
+DeleteMessage(Chat_id, {[0] = Msg_id}) 
+return https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. Chat_id .. "&user_id="..Ok_id .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+end
+Ok_id  = Text:match("(%d+)")  
+if Text == 'okCaptcha'..data.sender_user_id_ then  
+DeleteMessage(Chat_id, {[0] = Msg_id}) 
+return https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. Chat_id .. "&user_id="..Ok_id .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+end
+if Text == '/bnada-yquio' then
+local Teext =[[
+𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ʏᴏᴢᴀʀᴀᴛ ᴍᴏѕᴛᴀғᴀ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'M҉O҉ S҉T҉ A҉F҉A҉',url="t.me/DEV_MOSTAFA"}},
+{{text ='الــقــنــوات', callback_data="/Jabwa"},{text ='الــبــارات', callback_data="/Jabwa2"}},  
+{{text ='الــبــوتــات', callback_data="/Jabwa3"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+if Text == '/Jabwa' then
+local Teext =[[
+𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ᴄʜᴀɴɴᴇʟѕ ᴍᴏѕᴛᴀғᴀ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '【 𝗦𝗼𝘂𝗿𝗰𝗲 𝗦𝗮𝗶𝗱𝗶 】',url="t.me/S_a_i_d_i"},{text = 'ᴘᴏѕᴛᴀᴛ ᴍᴏѕᴛᴀғᴀ',url="t.me/POSTAT_MOSTAFA"}},
+{{text = '`ʙᴀᴄᴋ´', callback_data="/bnada-yquio"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+if Text == '/Jabwa2' then
+local Teext =[[
+𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ᴘʀᴀᴛᴛ ᴍᴏѕᴛᴀғᴀ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '『☠𝗕𝗔𝗥•𝗧𝗘𝗠•𝗦𝗔☠』✹⃝‌꙰🥂',url="t.me/BAR_JABWA"}},
+{{text = '`ʙᴀᴄᴋ´', callback_data="/bnada-yquio"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+if Text == '/Jabwa3' then
+local Teext =[[
+𝗐ᴇʟᴄᴏᴍᴇ ᴛᴏ ʙᴏᴛѕ ᴍᴏѕᴛᴀғᴀ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'بــوت حـمـايه',url="t.me/Bot_JABWA_Bot"}},
+{{text = 'بــوت تمـويل',url="t.me/tmwelEgyptbot"}},
+{{text = 'بــوت اغـاني كول',url="t.me/SOURCE_SAIDI_BOT"}},
+{{text = 'بــوت مـسـبــقات',url="t.me/Bot_msabah_Bot"}},
+{{text = 'بــوت مـنشـورات',url="t.me/S_a_i_d_i_bot"}},
+{{text = '`ʙᴀᴄᴋ´', callback_data="/bnada-yquio"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
 if DAata and DAata:match("^(%d+)unbeen(.*)$") then
 local notId  = DAata:match("(%d+)")  
 local OnID = DAata:gsub('unbeen',''):gsub(notId,'')
