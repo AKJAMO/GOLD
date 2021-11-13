@@ -8491,7 +8491,7 @@ end
 if text == ""..(database:get(bot_id..'Name:Bot') or 'الجولد').."" then  
 Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد')
 local DRAGON_Msg = {
-''ننعم يروحي 😻❤️',
+'ننعم يروحي 😻❤️',
 'نعم يا قلب  '..Namebot..'',
 'عاوز اي من '..Namebot..'',
 'دوختو  '..Namebot..'',
