@@ -10629,23 +10629,14 @@ end -- end msg
 function tdcli_update_callback(data)  -- clback
 if data.ID == "UpdateChannel" then 
 if data.channel_.status_.ID == "ChatMemberStatusKicked" then 
-t = "قام احد المنشئين بطرد البوت من مجموعته\n\n"
-tdcli_function({ID ="GetChat",chat_id_="-100"..data.channel_.id_},function(arg,chat)  
-local NameChat = chat.title_
-t =t.."اسم المجموعه\n"..NameChat
-local IdChat = "-100"..data.channel_.id_
-t =t.."\n\nايدي المجموعه\n"..IdChat
-send(SUDO, msg.id_,t)
-database:srem(bot_id..'Chek:Groups','-100'..data.channel_.id_)  
-end,nil)
+bot_data:srem(ban_id..'Chek:Groups','-100'..data.channel_.id_)  
 end
 end
 if data.ID == "UpdateNewCallbackQuery" then
 local Chat_id = data.chat_id_
-local From_id = data.id_
 local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
-local DAata = data.payload_.data_
+local Text = data.payload_.data_
 if DAata and DAata:match("^(%d+)unbeen(.*)$") then
 local notId  = DAata:match("(%d+)")  
 local OnID = DAata:gsub('unbeen',''):gsub(notId,'')
