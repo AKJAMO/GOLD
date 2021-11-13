@@ -8490,7 +8490,7 @@ return false
 end
 if text == ""..(database:get(bot_id..'Name:Bot') or 'الجولد').."" then  
 Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد')
-local DRAGON_Msg = {
+local GOLD_Msg = {
 'ننعم يروحي 😻❤️',
 'نعم يا قلب  '..Namebot..'',
 'عاوز اي من '..Namebot..'',
@@ -8506,7 +8506,7 @@ local DRAGON_Msg = {
 'انا '..Namebot..' احسن البوتات 🤩♥️',
 'نعم'
 } 
-Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
+Namebot = GOLD_Msg[math.random(#GOLD_Msg)] 
 local msg_id = msg.id_/2097152/0.5  
 local texxtt = ''..Namebot..''
 keyboard = {} 
@@ -8526,7 +8526,7 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, l
 end
 if text == "بوت" then
 local Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد') 
-local DRAGON_Msg = { 
+local GOLD_Msg = { 
 'اسمي '..Namebot..' يا روحي 🙂❤️',
 'اسمي  '..Namebot..' يعمري🤗💔',
 'اسمي  '..Namebot..' يا قمر 😍🤤',
@@ -8537,7 +8537,7 @@ local DRAGON_Msg = {
 'اسمي  '..Namebot..' ياحياتي😻❤️',
 'اسمي  '..Namebot..' يوتكه 🍒🤗',
 } 
-Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
+Namebot = GOLD_Msg[math.random(#GOLD_Msg)] 
 local msg_id = msg.id_/2097152/0.5  
 local texxtt = ''..Namebot..''
 keyboard = {} 
@@ -9960,7 +9960,7 @@ _key = {
 {{text="Atomic 1▶️",url='https://t.me/gamee?game=AtomicDrop1'},{text="Corsairs",url='https://t.me/gamebot?game=Corsairs'}},
 {{text="LumberJack",url='https://t.me/gamebot?game=LumberJack'}},
 {{text="LittlePlane",url='https://t.me/gamee?game=LittlePlane'},{text="RollerDisco",url='https://t.me/gamee?game=RollerDisco'}},
-{{text="🦖 Dragon Game 🦖",url='https://t.me/T4TTTTBOT?game=dragon'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
+{{text="🦖 GOLD Game 🦖",url='https://t.me/T4TTTTBOT?game=GOLD'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
 {{text="🔵 Color Game 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
 {{text="🚀 Rocket Game 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 Arrow Game 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
 {{text = 'قناه السورس ☑️.', url="t.me/AKJA0"}},
