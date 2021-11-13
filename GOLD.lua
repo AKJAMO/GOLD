@@ -8520,7 +8520,7 @@ end
 return false  
 end
 if text == "بوت" then
-local Namebot = (database:get(Jam_id..'Name:Bot') or 'الجولد') 
+local Namebot = (database:get(bot_id..'Name:Bot') or 'الجولد') 
 local GOLD_Msg = { 
 'اسمي '..Namebot..' يا روحي 🙂❤️',
 'اسمي  '..Namebot..' يعمري🤗💔',
@@ -8551,13 +8551,13 @@ else
 send(msg.chat_id_, msg.id_,Namebot, 1, 'md') 
 end 
 end 
-tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = Jam_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end
 
 if text == 'الاحصائيات' and Sudo(msg) then
-local Namebot = (database:get(Jam_id..'Name:Bot') or 'الملوك') 
-local Groups = database:scard(Jam_id..'Chek:Groups')  
-local Users = database:scard(Jam_id..'User_Bot')  
+local Namebot = (database:get(bot_id..'Name:Bot') or 'الملوك') 
+local Groups = database:scard(bot_id..'Chek:Groups')  
+local Users = database:scard(bot_id..'User_Bot')  
 tessttm = "NAME BOT ↤"..Namebot..'\n groubs ↤ {'..Groups..'}\nSubscribers ↤ {'..Users..'}'
 local msg_id = msg.id_/2097152/0.5  
 local tessttmos = 'اسم بوت ↤ '..Namebot..''
@@ -8585,12 +8585,12 @@ else
 send(msg.chat_id_, msg.id_,Namebot, 1, 'md') 
 end 
 end 
-tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = Jam_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end
 if text == 'الجروبات' and Sudo(msg) then
-local Namebot = (database:get(Jam_id..'Name:Bot') or 'الملوك') 
-local Groups = database:scard(Jam_id..'Chek:Groups')  
-local Users = database:scard(Jam_id..'User_Bot')  
+local Namebot = (database:get(bot_id..'Name:Bot') or 'الملوك') 
+local Groups = database:scard(bot_id..'Chek:Groups')  
+local Users = database:scard(bot_id..'User_Bot')  
 tessttm = "NAME BOT ↤"..Namebot..'\n groubs ↤ {'..Groups..'}\nSubscribers ↤ {'..Users..'}'
 local msg_id = msg.id_/2097152/0.5  
 local tessttmos = 'اسم بوت ↤ '..Namebot..''
@@ -8614,12 +8614,12 @@ else
 send(msg.chat_id_, msg.id_,Namebot, 1, 'md') 
 end 
 end 
-tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = Jam_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end
 if text == 'المشتركين' and Sudo(msg) then
-local Namebot = (database:get(Jam_id..'Name:Bot') or 'الملوك') 
-local Groups = database:scard(Jam_id..'Chek:Groups')  
-local Users = database:scard(Jam_id..'User_Bot')  
+local Namebot = (database:get(bot_id..'Name:Bot') or 'الملوك') 
+local Groups = database:scard(bot_id..'Chek:Groups')  
+local Users = database:scard(bot_id..'User_Bot')  
 tessttm = "NAME BOT ↤"..Namebot..'\n groubs ↤ {'..Groups..'}\nSubscribers ↤ {'..Users..'}'
 local msg_id = msg.id_/2097152/0.5  
 local tessttmos = 'اسم بوت ↤ '..Namebot..''
@@ -8643,7 +8643,7 @@ else
 send(msg.chat_id_, msg.id_,Namebot, 1, 'md') 
 end 
 end 
-tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = Jam_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end
 
 if text == 'تفعيل المغادره' and DevGOLDW(msg) then   
@@ -8833,7 +8833,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 end
 
-if text == "رتبتي" and not database:get(Jam_id..'ghiktr'..msg.chat_id_) then     
+if text == "رتبتي" and not database:get(bot_id..'ghiktr'..msg.chat_id_) then     
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 if result.username_ then
 username = result.username_ 
@@ -8859,8 +8859,8 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 end,nil)
 end
 if text == 'تفعيل رتبتي' and Manager(msg) then   
-if database:get(Jam_id..'ghiktr'..msg.chat_id_)  then
-database:del(Jam_id..'ghiktr'..msg.chat_id_) 
+if database:get(bot_id..'ghiktr'..msg.chat_id_)  then
+database:del(bot_id..'ghiktr'..msg.chat_id_) 
 Text = '\n*⦁ تم تفعيل رتبتي*' 
 else
 Text = '\n*⦁ بالتاكيد تم تفعيل رتبتي*'
@@ -8868,8 +8868,8 @@ end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل رتبتي' and Manager(msg) then  
-if not database:get(Jam_id..'ghiktr'..msg.chat_id_)  then
-database:set(Jam_id..'ghiktr'..msg.chat_id_,true) 
+if not database:get(bot_id..'ghiktr'..msg.chat_id_)  then
+database:set(bot_id..'ghiktr'..msg.chat_id_,true) 
 Text = '\n*⦁ تم تعطيل رتبتي*' 
 else
 Text = '\n*⦁ بالتاكيد تم تعطيل رتبتي*'
@@ -8877,7 +8877,7 @@ end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == "انا مين" then
-local my_ph = database:get(Jam_id.."my_anamen:status"..msg.chat_id_)
+local my_ph = database:get(bot_id.."my_anamen:status"..msg.chat_id_)
 if not my_ph then
 send(msg.chat_id_, msg.id_,"◐╿انا مين معطله") 
 return false  
@@ -8908,13 +8908,13 @@ end,nil)
 end
 if text == "تعطيل انا مين"  and Manager(msg) then   
 if Constructor(msg) then  
-database:del(Jam_id.."my_anamen:status"..msg.chat_id_) 
+database:del(bot_id.."my_anamen:status"..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,"*⦁ تم تعطيل انا مين*") 
 return false end
 end
 if text == "تفعيل انا مين"  and Manager(msg) then   
 if Constructor(msg) then  
-database:set(Jam_id.."my_anamen:status"..msg.chat_id_,true) 
+database:set(bot_id.."my_anamen:status"..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,"*⦁ تم تفعيل انا مين*") 
 return false  
 end
