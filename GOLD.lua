@@ -8825,10 +8825,10 @@ local msg_id = msg.id_/2097152/0.5
 local Text = "معلوماتك"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '◐╿ معرفك«'..data.username_,url="t.me/"..data.username_}},
-{{text = '◐╿ رتبتك«'..rtp, url="t.me/"..data.username_}},
-{{text = '◐╿ رسائلك«'..Msguser, url="t.me/"..data.username_}},
-{{text = '◐╿ ايديك«'..msg.sender_user_id_, url="t.me/"..data.username_}},
+{{text = '- معرفك ↫'..data.username_,url="t.me/"..data.username_}},
+{{text = '- رتبتك ↫'..rtp, url="t.me/"..data.username_}},
+{{text = '- رسائلك ↫'..Msguser, url="t.me/"..data.username_}},
+{{text = '- ايديك ↫'..msg.sender_user_id_, url="t.me/"..data.username_}},
 }
 local function getpro(extra, result, success)
 if result.photos_[0] then
@@ -11850,6 +11850,23 @@ local kkp = {string.match(DAata,"^mp4/(.*)/@m(%d+)$")}
 DeleteMessage(Chat_id,{[0] = Msg_id})    
 require("socket.http").request("http://167.71.14.2/ytd.php?url="..kkp[1].."&token="..token.."&chat="..data.chat_id_.."&rep="..kkp[2].."&type=mp4")
 end
+
+if DAata == '/admen2' then
+if not Mod(data) then
+local notText = '♢ عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Text ='• تم رفع الادمنيه بنجاح '
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = textt, url = "http://t.me/AKJA0},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+
 if DAata == '/help1' then
 if not Mod(data) then
 local notText = '♢ عذرا الاوامر هذه لا تخصك'
